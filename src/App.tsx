@@ -8,7 +8,7 @@ function App() {
     setFile(event.target.files[0]);
   }
 
-  const upload = (file:any|undefined){
+  const upload = (file:any|undefined)=>{
     if (typeof(file)=="undefined"){
       window.alert("ファイルが設置されていません")
     }else{
