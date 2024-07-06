@@ -8,16 +8,26 @@ function App() {
     setFile(event.target.files[0]);
   }
 
+  const upload = (file:any|undefined){
+    if (typeof(file)=="undefined"){
+      window.alert("ファイルが設置されていません")
+    }else{
+      uploadData({
+        path: `picture-submissions/${file.name}`,
+        data: file,
+    })
+    }
+  }
+
   return (
     <main>
       <div>
+      {/* ファイルをアップするためのinput要素 */}
       <input type="file" onChange={handleChange} />
+      {/* アップロードボタン */}
         <button
           onClick={() =>
-            uploadData({
-              path: `picture-submissions/${file.name}`,
-              data: file,
-          })
+            upload(file)
         }
       >
         Upload
